@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Form</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 80%; }
+        th, td { padding: 10px; border: 1px solid black; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+
+<h2>Create Appointment</h2>
+
+<form action="/appointments/save" method="post">
+
+    <label>Patient:</label>
+    <select name="patientId">
+        <option th:each="p : ${patients}"
+                th:value="${p.id}"
+                th:text="${p.firstName + ' ' + p.lastName}">
+        </option>
+    </select>
+    <br><br>
+
+    <label>Doctor:</label>
+    <select name="doctorId">
+        <option th:each="d : ${doctors}"
+                th:value="${d.id}"
+                th:text="${d.firstName + ' ' + d.lastName}">
+        </option>
+    </select>
+    <br><br>
+
+    <label>Date:</label>
+    <input type="text" name="appointmentDate"><br><br>
+
+    <label>Status:</label>
+    <input type="text" name="status"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="/appointments">View Appointments</a>
+
+</body>
+</html>

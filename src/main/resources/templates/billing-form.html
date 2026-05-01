@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Form</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 80%; }
+        th, td { padding: 10px; border: 1px solid black; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+
+<h2>Create Billing</h2>
+
+<form action="/billings/save" method="post">
+
+    <label>Patient:</label>
+    <select name="patientId">
+        <option th:each="p : ${patients}"
+                th:value="${p.id}"
+                th:text="${p.firstName + ' ' + p.lastName}">
+        </option>
+    </select>
+    <br><br>
+
+    <label>Amount:</label>
+    <input type="number" name="amount"><br><br>
+
+    <label>Date:</label>
+    <input type="text" name="billingDate"><br><br>
+
+    <label>Status:</label>
+    <select name="paymentStatus">
+        <option>Paid</option>
+        <option>Unpaid</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="/billings">View Billing</a>
+
+</body>
+</html>

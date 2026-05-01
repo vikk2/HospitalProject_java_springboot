@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Form</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 80%; }
+        th, td { padding: 10px; border: 1px solid black; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+
+<h2>Add Inventory Item</h2>
+
+<form action="/inventory/save" method="post">
+
+    <label>Item Name:</label>
+    <input type="text" name="itemName"><br><br>
+
+    <label>Quantity:</label>
+    <input type="number" name="quantity"><br><br>
+
+    <label>Expiration Date:</label>
+    <input type="text" name="expirationDate"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="/inventory">View Inventory</a>
+
+</body>
+</html>
